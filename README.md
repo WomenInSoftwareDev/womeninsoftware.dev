@@ -8,6 +8,7 @@
 
 - **Showcase Directory:** Highlighting women in software development across various roles and levels of expertise.
 - **Resources Hub:** Articles, tutorials, and guides covering software development, engineering, and career growth.
+- **Women in Tech Submenu:** Featuring additional tech fields beyond software development.
 - **Community Connections:** Links to join our growing network of women in tech.
 - **Open Contribution:** Encourages contributions from anyone willing to help the cause.
 
