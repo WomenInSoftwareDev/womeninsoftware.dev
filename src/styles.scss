@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+// Angular Material overwrites
+
+.mat-drawer {
+  border-radius: 0 !important;
+}
+
+mat-nav-list {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  overflow-x: hidden;
+
+  .mdc-list-item__primary-text {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.1rem;
+  }
+
+  mat-nav-list {
+    width: 14rem !important;
+    border-radius: 1rem;
+
+    .mdc-list-item__primary-text {
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<div [class]="themeService.themeSignal()">
+  <app-header (toggleSidenav)="snav.toggle()"></app-header>
+  <mat-sidenav-container>
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? false : true">
+      <mat-nav-list>
+        @for (navItem of navItems; track navItem) {
+        @if (navItem.submenu) {
+        <a mat-list-item routerLink="{{navItem.route}}" routerLinkActive="active" (click)="toggleSubmenu(navItem.name)">
+          <span>{{navItem.name}}</span>
+          <mat-icon [class.rotated]="expandedNavItem === navItem.name">expand_more</mat-icon>
+        </a>
+
+        @if (expandedNavItem === navItem.name) {
+        <mat-nav-list class="submenu">
+          @for (subItem of navItem.submenu; track subItem) {
+          <a mat-list-item routerLink="{{subItem.route}}" routerLinkActive="active">
+            <span>{{subItem.name}}</span>
+          </a>
+          }
+        </mat-nav-list>
+        }
+
+        } @else {
+        <a mat-list-item routerLink="{{navItem.route}}" routerLinkActive="active" (click)="toggleSubmenu(navItem.name)">
+          <span>{{navItem.name}}</span>
+        </a>
+        }
+        }
+
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</div>

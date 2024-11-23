@@ -1,0 +1,210 @@
+// could be combined under style.scss like newer angular material versions do.
+
+@use "@angular/material" as mat;
+
+$light-theme: mat.define-theme((color: (theme-type: light,
+        primary: mat.$violet-palette,
+        tertiary: mat.$magenta-palette,
+      ),
+    ));
+
+$dark-theme: mat.define-theme((color: (theme-type: dark,
+        primary: mat.$violet-palette,
+        tertiary: mat.$magenta-palette,
+      ),
+    ));
+
+@include mat.core();
+@include mat.color-variants-backwards-compatibility($light-theme);
+
+:root {
+  @include mat.all-component-themes($light-theme);
+}
+
+// DARK THEME
+.dark {
+  @include mat.color-variants-backwards-compatibility($dark-theme);
+  @include mat.all-component-colors($dark-theme);
+
+  ::-webkit-scrollbar {
+    width: 0.7rem;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #444;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 0.2rem;
+
+    &:hover {
+      background: #666;
+    }
+  }
+
+  background-color: #333;
+  color: #c1b0cb;
+
+  a,
+  h1 {
+    color: #9b7aae;
+  }
+
+  mat-toolbar {
+    background-color: #202020;
+    box-shadow: 0 0 0.4rem #000000da;
+
+    // slide toggle overwrites
+    mat-slide-toggle {
+      button {
+        .mdc-switch__track {
+          &::after {
+            background-color: #453454 !important;
+            box-shadow: inset 0 0 0.4rem #000000b0 !important;
+          }
+        }
+
+        .mdc-switch__handle-track {
+          .mdc-switch__handle {
+            &::after {
+              background: #9061ac !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mat-drawer-container {
+    background-color: #343434;
+  }
+  mat-sidenav {
+    background-color: #2a2a2a;
+    box-shadow: 0 0 0.4rem #000000c9;
+
+    mat-nav-list {
+      mat-nav-list {
+        background-color: #323232;
+      }
+    }
+  }
+
+  mat-card {
+    background-color: #202020;
+
+    &.home {
+      border: 0.3rem solid #49454e;
+
+      &:hover {
+        background-color: #2a292b;
+        box-shadow: 0 0.1rem 0.3rem #000000a2;
+        border-color: #9061ac;
+
+        img {
+          box-shadow: 0 0.1rem 0.3rem #000000;
+        }
+      }
+    }
+  }
+
+  .content {
+    mat-panel-title {
+      color: #c9bdd0;
+    }
+  }
+
+  app-footer {
+    background-color: #202020;
+    color: #555;
+    box-shadow: 0 0 0.4rem #000000da;
+  }
+}
+
+// LIGHT THEME
+.light {
+
+  ::-webkit-scrollbar {
+    width: 0.7rem;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #e7e3e8;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #dfdddf;
+    border-radius: 0.2rem;
+
+    &:hover {
+      background: #d7d5d7;
+    }
+  }
+
+  a,
+  h1 {
+    color: #9e97a9;
+  }
+
+  button[mat-raised-button] {
+    background-color: #e8d9ec !important;
+    color: #a900a9 !important;
+  }
+
+  mat-toolbar {
+    background-color: #e7e3e8;
+    box-shadow: 0 0.1rem 0.3rem #0f0f0f2d;
+
+    // slide toggle overwrites
+    mat-slide-toggle {
+      button {
+        .mdc-switch__track {
+          &::before {
+            border-color: #e4e3e3;
+            box-shadow: inset 0 0 0.4rem #00000070 !important;
+          }
+
+          &::after {
+            background-color: grey !important;
+          }
+        }
+      }
+    }
+  }
+
+  .mat-drawer-container {
+    background-color: #f1f2f6;
+  }
+
+  mat-sidenav {
+    background-color: #ebecf3;
+    box-shadow: 0 0.1rem 0.3rem #0f0f0f2d;
+
+    mat-nav-list {
+      mat-nav-list {
+        background-color: #f1f2f6;
+      }
+    }
+  }
+
+  mat-card {
+    background-color: #e7e3e8;
+
+    &.home {
+      border: 0.3rem solid #ffffff;
+
+      &:hover {
+        background-color: #ded9e8;
+        border-color: #c7c1d4;
+
+        img {
+          box-shadow: 0 0.1rem 0.5rem #00000070;
+        }
+      }
+    }
+  }
+
+  app-footer {
+    background-color: #e7e3e8;
+    color: gray;
+    box-shadow: 0 0 10px 0 #0f0f0f2d;
+  }
+}

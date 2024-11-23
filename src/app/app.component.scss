@@ -1,0 +1,57 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+mat-sidenav-container {
+  height: 100%;
+  flex: 1 0 auto;
+
+  mat-sidenav {
+    width: 15vw;
+
+    mat-nav-list {
+
+      a[mat-list-item] {
+        padding-right: 1rem;
+
+        mat-icon {
+          &.rotated {
+            transform: rotate(180deg);
+            transition-duration: ease-in-out 0.3s;
+          }
+        }
+      }
+    }
+  }
+
+  mat-sidenav-content {
+    min-height: 80vh;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  mat-sidenav-container {
+    mat-sidenav {
+      width: 25vw;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 800px) {
+  mat-sidenav-container {
+    mat-sidenav {
+      width: 30vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  mat-sidenav-container {
+    mat-sidenav {
+      width: 40vw;
+    }
+  }
+}
