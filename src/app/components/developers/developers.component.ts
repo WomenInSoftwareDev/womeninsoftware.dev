@@ -35,7 +35,7 @@ export class DevelopersComponent implements OnInit {
 	technologies: string[] = [];
 	filterApplied: boolean = false;
 	selectedTech: string[] = [];
-	showHandsOnCoding: boolean = false;
+	showOpenSource: boolean = false;
 	profileService = inject(ProfileService);
 
 	ngOnInit(): void {
@@ -47,15 +47,22 @@ export class DevelopersComponent implements OnInit {
 
   applyFilter(): void {
     this.filterApplied = true;
+
     this.filteredProfiles = this.profiles.filter(profile => {
-      return this.selectedTech.length === 0 ||
+
+      const matchesTech = this.selectedTech.length === 0 ||
         profile.technologies.some(tech => this.selectedTech.includes(tech.name));
+
+      const matchesHandsOnCoding = !this.showOpenSource ||
+        (profile.openSource);
+
+      return matchesTech && matchesHandsOnCoding;
     });
   }
 
 	clearFilters(): void {
 		this.filterApplied = false;
 		this.selectedTech = [];
-		this.showHandsOnCoding = false;
+		this.showOpenSource = false;
 	}
 }

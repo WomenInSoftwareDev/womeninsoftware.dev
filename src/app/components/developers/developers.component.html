@@ -11,7 +11,7 @@
       </mat-form-field>
       <div class="buttons-wrapper">
         <div class="checkboxes-wrapper">
-          <mat-checkbox [(ngModel)]="showHandsOnCoding" (change)="applyFilter()">Hands-on Coding</mat-checkbox>
+          <mat-checkbox [(ngModel)]="showOpenSource" (change)="applyFilter()" matTooltip="Open Source Software (OSS)" matTooltipPosition="above">Involved in OSS</mat-checkbox>
         </div>
         <button mat-raised-button (click)="clearFilters()"> Clear Filters</button>
       </div>
