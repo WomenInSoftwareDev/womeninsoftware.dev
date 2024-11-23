@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="onToggleSidenav()"><mat-icon>menu</mat-icon></button>
+  <div class="toolbar-middle">
+    <div class="logo">
+      <a routerLink="/">
+        @if (themeService.themeSignal() === 'dark') {
+        <img src="/images/branding/wisd-logo-narrow.jpg" alt="women-in-software-dev-logo">
+        } @else {
+        <img src="/images/branding/wisd-logo-narrow-light.jpg" alt="women-in-software-dev-logo">
+        }
+      </a>
+    </div>
+    <div class="title">
+      <h3>{{title}}</h3>
+    </div>
+  </div>
+  <div class="toolbar-end controls">
+    <div class="theme-control">
+      <mat-slide-toggle checked (click)="toggleTheme()"></mat-slide-toggle>
+    </div>
+  </div>
+</mat-toolbar>
