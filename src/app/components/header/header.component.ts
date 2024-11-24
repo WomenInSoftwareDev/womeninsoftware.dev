@@ -28,7 +28,6 @@ import { ThemeService } from "../../services/theme.service";
 	styleUrl: "./header.component.scss",
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
-
 	@Output() toggleSidenav = new EventEmitter<void>();
 
 	title = "";
@@ -37,31 +36,31 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 	router = inject(Router);
 	themeService = inject(ThemeService);
 
-  ngOnInit() {
-    // Subscribe to router events to detect route changes
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        let title = '';
-        switch (this.router.url) {
-          case '/':
-            title = '';
-            break;
-          case '/open-source':
-            title = 'Open Source Involved';
-            break;
-          case '/developers':
-            title = 'Software Engineers & Developers';
-            break;
-          case '/history':
-            title = 'Throughout History';
-            break;
-          default:
-            title = ''; // Set a default title if needed
-        }
-        this.title = title;
-      }
-    });
-  }
+	ngOnInit() {
+		// Subscribe to router events to detect route changes
+		this.router.events.subscribe((event) => {
+			if (event instanceof NavigationEnd) {
+				let title = "";
+				switch (this.router.url) {
+					case "/":
+						title = "";
+						break;
+					case "/home":
+						title = "Software Developers & Engineers";
+						break;
+					case "/women-in-tech":
+						title = "Women in Tech";
+						break;
+					case "/history":
+						title = "Throughout History";
+						break;
+					default:
+						title = ""; // Set a default title if needed
+				}
+				this.title = title;
+			}
+		});
+	}
 
 	onToggleSidenav() {
 		this.toggleSidenav.emit();
@@ -79,4 +78,3 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 		this.themeService.updateTheme();
 	}
 }
-

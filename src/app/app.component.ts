@@ -48,7 +48,7 @@ export class AppComponent implements OnDestroy {
 	navItems = [
 		{
 			name: "Software Developers",
-			route: "",
+			route: "home",
 			icon: "developer_board",
 		},
 		{
@@ -233,7 +233,6 @@ export class AppComponent implements OnDestroy {
 			route: "/women-in-tech",
 			icon: "developer_board",
 			submenu: [
-				// { name: "Open Source Involved", route: "/open-source", icon: "developer_board"},
 				{
 					name: "Data Scientists / Analysts",
 					route: "/developers",

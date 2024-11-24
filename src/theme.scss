@@ -29,6 +29,7 @@ $dark-theme: mat.define-theme((color: (theme-type: dark,
   ::-webkit-scrollbar {
     width: 0.7rem;
   }
+
   ::-webkit-scrollbar-track {
     background-color: #444;
   }
@@ -78,11 +79,19 @@ $dark-theme: mat.define-theme((color: (theme-type: dark,
   .mat-drawer-container {
     background-color: #343434;
   }
+
   mat-sidenav {
     background-color: #2a2a2a;
     box-shadow: 0 0 0.4rem #000000c9;
 
     mat-nav-list {
+
+      a {
+        &.active {
+          background-color: #414041;
+        }
+      }
+
       mat-nav-list {
         background-color: #323232;
       }
@@ -126,6 +135,7 @@ $dark-theme: mat.define-theme((color: (theme-type: dark,
   ::-webkit-scrollbar {
     width: 0.7rem;
   }
+
   ::-webkit-scrollbar-track {
     background-color: #e7e3e8;
   }
@@ -179,6 +189,13 @@ $dark-theme: mat.define-theme((color: (theme-type: dark,
     box-shadow: 0 0.1rem 0.3rem #0f0f0f2d;
 
     mat-nav-list {
+
+      a {
+        &.active {
+          background-color: #d1d2d9;
+        }
+      }
+
       mat-nav-list {
         background-color: #f1f2f6;
       }
